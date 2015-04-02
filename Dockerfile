@@ -13,9 +13,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
 
 
 # we use the enviroment variable to stop debconf from asking questions..
-RUN DEBIAN_FRONTEND='noninteractive' apt-get install -y php5 php5-cli php5-mysql
-php5-fpm php5-apcu php5-curl php5-imagick php5-mongo php5-xdebug php5-mcrypt
-php5-gd  && \
+RUN DEBIAN_FRONTEND='noninteractive' apt-get install -y php5 php5-cli php5-mysql php5-fpm php5-apcu php5-curl php5-imagick php5-mongo php5-xdebug php5-mcrypt php5-gd  && \
     apt-add-repository ppa:nginx/development && \
     apt-get update && \
     apt-get install -y nginx
