@@ -13,7 +13,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/
 
 
 # we use the enviroment variable to stop debconf from asking questions..
-RUN DEBIAN_FRONTEND='noninteractive' apt-get install -y php5 php5-cli php5-mysql php5-fpm php5-apcu php5-curl php5-imagick php5-mongo php5-xdebug php5-mcrypt php5-gd  && \
+RUN DEBIAN_FRONTEND='noninteractive' apt-get install -y php5 php5-cli php5-mysql php5-fpm php5-apcu php5-curl php5-imagick php5-mongo php5-xdebug php5-mcrypt php5-gd wget fontconfig libxrender1 xfonts-base xfonts-75dpi && \
     apt-add-repository ppa:nginx/development && \
     apt-get update && \
     apt-get install -y nginx
@@ -49,3 +49,7 @@ EXPOSE 80
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
+
+# download and install wkpdfhtml
+RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-precise-amd64.deb
+RUN dpkg -i wkhtmltox-0.12.2.1_linux-precise-amd64.deb
