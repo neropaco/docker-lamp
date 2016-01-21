@@ -24,7 +24,7 @@ RUN locale-gen it_IT.UTF-8
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install custom config files
-#ADD nginx.conf /etc/nginx/nginx.conf
+ADD nginx.conf /etc/nginx/nginx.conf
 ADD php-fpm.conf /etc/php5/fpm/php-fpm.conf
 
 # install service files for runit
