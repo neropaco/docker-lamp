@@ -50,7 +50,8 @@ VOLUME ["/srv/http/"]
 EXPOSE 80
 EXPOSE 443
 
-RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-precise-amd64.deb
+#RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-precise-amd64.deb
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2.1/wkhtmltox-0.12.2.1_linux-precise-amd64.deb
 RUN dpkg -i wkhtmltox-0.12.2.1_linux-precise-amd64.deb
 
 # Use baseimage-docker's init system.
