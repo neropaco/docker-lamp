@@ -44,7 +44,7 @@ RUN mkdir -p /run/fpm
 RUN rm -rf /tmp/* /var/tmp/*
 
 # Create mount directory for http
-VOLUME ['/srv/http']
+VOLUME ["/srv/http/"]
 
 # expose nginx
 EXPOSE 80
